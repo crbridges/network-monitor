@@ -1,0 +1,13 @@
+Network Monitoring Tool
+
+This is a program that monitors a set of user defined servers with user defined protocols. A management service is
+used to establish and control multiple remote monitoring services. The services communicate through TCP sockets.
+
+The service parameters are hard coded in the program as a list with the following format:
+        services = ["SERVICE_NAME", "SERVER_ADDRESS", INTERVAL]
+
+The network_monitoring_examples.py file is required for the monitor service to run.
+
+The monitor service can be run from the command line with 'python ./monitor_server1.py', 'python ./monitor_server2.py',
+    and 'python ./monitor_server3.py'.
+The management service can be run from the command line with 'python ./management_clent.py'
