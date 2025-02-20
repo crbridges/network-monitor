@@ -1,13 +1,25 @@
-Network Monitoring Tool
+# Network Monitoring System
 
-This is a program that monitors a set of user defined servers with user defined protocols. A management service is
-used to establish and control multiple remote monitoring services. The services communicate through TCP sockets.
+## Overview
 
-The service parameters are hard coded in the program as a list with the following format:
-        services = ["SERVICE_NAME", "SERVER_ADDRESS", INTERVAL]
+This network monitoring system is designed to facilitate communication between a management client and a server that monitors various network services (Ping, HTTP, HTTPS, DNS, NTP, TCP, UDP). The client sends requests to the server for monitoring tasks, and the server runs the services, sending updates back to the client. The client uses the `MessageHandler` to handle incoming messages from the server.
 
-The network_monitoring_examples.py file is required for the monitor service to run.
+---
 
-The monitor service can be run from the command line with 'python ./monitor_server1.py', 'python ./monitor_server2.py',
-    and 'python ./monitor_server3.py'.
-The management service can be run from the command line with 'python ./management_clent.py'
+## Features
+
+- **Monitoring Tasks**: Monitor various network services such as Ping, HTTP, HTTPS, DNS, NTP, TCP, and UDP.
+- **Server and Client Communication**: Uses TCP sockets to communicate between the server and the management client.
+- **Service Control**: Start, pause, resume, and stop services remotely from the client.
+- **Task Status Updates**: Receive real-time updates from the server about service status.
+
+---
+
+## Architecture
+
+### Client-Side (`client.py`)
+
+The client connects to the server to send monitoring tasks and receive updates. It uses the `MessageHandler` class to handle incoming messages and send out monitoring results.
+
+- **MessageHandler**: Handles communication with the server. It manages a list of messages to be sent and periodically sends messages to the server.
+
